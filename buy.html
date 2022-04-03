@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<title>无标题文档</title>
+</head>
+
+<body>
+	
+<div id="paypal-button" style="margin-top:100px;"></div>
+<script>
+    paypal.Button.render({
+        locale: 'zh_CN', 
+        env: 'sandbox', 
+        commit: true,   
+        client: {
+            sandbox:    'AatommnMZDrJlWtZUKQjU8IjRvE0SMcwi19EqOHFTBYAdUfHCJrk5EAAB_M2aa5HcVEsCFCnMWyEvWYc',
+            production: 'ED1dhM6w1CJP5m7nCxFeRcxMhUWX2C9p-Yl_NU7Q9eMvA6NOhjMhRBp_ojkPQihKix_bfZf_SBiPl9zw'
+        },
+        style: {
+            size: 'small',
+            color: 'silver',
+            shape: 'pill',
+            label: 'checkout',
+            tagline: false
+        },
+        payment: function(data, actions) {
+            return actions.payment.create({
+                payment: {
+                    transactions: [
+                        {
+                            amount: { total: '1', currency: 'USD' }
+                        }
+                    ]
+                }
+            });
+        },
+        onAuthorize: function(data, actions) {
+            console.log(data);
+            return actions.payment.execute().then(function(payment) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/',
+                    data: {}
+                }).done(function (data) {
+                    if (data == '0') {
+                        alert('支付完成!');
+                        window.location.reload();
+                    }else {
+                        alert('支付失败!')
+                    }
+                })
+            });
+        },
+        onCancel: function(data, actions) {
+             alert('支付失败')
+        },
+        onError: function(err) {
+            // 当交易发生错误时触发
+            // TODO
+        }
+    }, '#paypal-button');
+</script>
+
+</body>
+</html>

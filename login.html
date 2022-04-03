@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Sliding Sign In Sign Up Page</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous">
+
+<div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>注册</h1>
+                <span>使用电子邮箱注册</span>
+                <input type="text" placeholder="用户名" />
+                <input type="email" placeholder="邮箱" />
+                <input type="password" placeholder="密码" />
+				<input type="password" placeholder="确认密码" />
+                <button>注册</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>登录</h1>
+                <!--<div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>-->
+                <span>登录您的账户</span>
+                <input type="text" placeholder="用户名" />
+                <input type="password" placeholder="密码" />
+                <a href="#">忘记密码?</a>
+                <button>登录</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>立即登录</h1>
+                    <p>已有帐户?立即登录</p>
+                    <button class="ghost" id="signIn">登录</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>立即注册</h1>
+                    <p>没有帐户?立即注册</p>
+                    <button class="ghost" id="signUp">注册</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="footer">
+
+</div>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
